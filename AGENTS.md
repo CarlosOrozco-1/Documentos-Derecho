@@ -72,14 +72,69 @@ python-dotenv
 
 ---
 
-## Frontend (Futuro - React)
+## Frontend (React + Vite)
 
-### Ubicación
-- `frontend/`
+### Estructura de carpetas
+```
+frontend/
+├── src/
+│   ├── components/    # Componentes reutilizables
+│   ├── pages/        # Páginas/rutas
+│   ├── services/     # Llamadas a API
+│   ├── hooks/        # Custom hooks
+│   ├── context/      # Estado global
+│   └── App.jsx       # Componente principal
+├── public/           # Archivos estáticos
+└── package.json
+```
+
+### Reglas de código
+- Sin comentarios en el código a menos que sea estrictamente necesario
+- Usar componentes funcionales con hooks
+- Nombres descriptivos en PascalCase para componentes
+- Props con desestructuración
+- Estado local con useState, estado global con useContext o Zustand
+
+### Dependencias principales
+```
+react
+react-dom
+react-router-dom
+axios
+```
+
+### Scripts
+| Acción | Comando |
+|--------|---------|
+| Iniciar dev | `npm run dev` |
+| Build | `npm run build` |
+| Preview | `npm run preview` |
+
+### Conexión con Backend
+- URL base: `http://localhost:8000`
+- Usar axios para peticiones HTTP
+- Manejar errores con try/catch
 
 ---
 
 ## Proceso de Desarrollo
+
+1. **Base de datos**: Completar y validar scripts
+2. **Backend**: Crear conexión → Models → Schemas → Routers → Services
+3. **Frontend**: Solo cuando backend esté validado
+
+### Validación en cada fase
+- Probar conexión a BD antes de crear models
+- Probar CRUD básico antes de lógica compleja
+- Endpoints funcionando antes de integrar con frontend
+
+---
+
+##Notas sobre el código
+
+- NO generar código sin autorización expresa
+- Preferir soluciones simples sobre sobreingeniería
+- Validar cada endpoint con las herramientas disponibles antes de continuar
 
 1. **Base de datos**: Completar y validar scripts
 2. **Backend**: Crear conexión → Models → Schemas → Routers → Services

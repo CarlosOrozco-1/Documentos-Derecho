@@ -1,0 +1,283 @@
+{
+  "info": {
+    "name": "Sistema Documentos Jurídicos",
+    "description": "API para gestión de documentos jurídicos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Plantillas",
+      "item": [
+        {
+          "name": "Listar plantillas",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/plantillas/",
+            "description": "Lista todas las plantillas"
+          }
+        },
+        {
+          "name": "Obtener plantilla por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/plantillas/{id}",
+            "description": "Obtiene una plantilla específica"
+          }
+        },
+        {
+          "name": "Crear plantilla",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/plantillas/",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Declaración Jurada\",\n  \"tipo_documento\": \"declaracion_jurada\",\n  \"contenido\": \"Yo, {{nombre}}, identificado con DPI {{dpi}}, declaro...\"\n}"
+            },
+            "description": "Crea una nueva plantilla"
+          }
+        },
+        {
+          "name": "Actualizar plantilla",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/plantillas/{id}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Nuevo nombre\",\n  \"activo\": false\n}"
+            },
+            "description": "Actualiza una plantilla existente"
+          }
+        },
+        {
+          "name": "Eliminar plantilla",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/plantillas/{id}",
+            "description": "Elimina una plantilla"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Campos",
+      "item": [
+        {
+          "name": "Listar campos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/campos/",
+            "description": "Lista todos los campos"
+          }
+        },
+        {
+          "name": "Obtener campo por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/campos/{id}",
+            "description": "Obtiene un campo específico"
+          }
+        },
+        {
+          "name": "Campos por plantilla",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/campos/plantilla/{plantilla_id}",
+            "description": "Obtiene los campos de una plantilla"
+          }
+        },
+        {
+          "name": "Crear campo",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/campos/",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plantilla_id\": 1,\n  \"nombre_campo\": \"nombre\",\n  \"etiqueta\": \"Nombre completo\",\n  \"tipo_dato\": \"texto\",\n  \"obligatorio\": true\n}"
+            },
+            "description": "Crea un nuevo campo"
+          }
+        },
+        {
+          "name": "Actualizar campo",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/campos/{id}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"etiqueta\": \"Nueva etiqueta\"\n}"
+            },
+            "description": "Actualiza un campo existente"
+          }
+        },
+        {
+          "name": "Eliminar campo",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/campos/{id}",
+            "description": "Elimina un campo"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Documentos",
+      "item": [
+        {
+          "name": "Listar documentos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/documentos/",
+            "description": "Lista todos los documentos"
+          }
+        },
+        {
+          "name": "Obtener documento por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/documentos/{id}",
+            "description": "Obtiene un documento específico"
+          }
+        },
+        {
+          "name": "Crear documento",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/documentos/",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plantilla_id\": 1,\n  \"nombre_documento\": \"Mi Declaración\",\n  \"contenido_final\": \"Documento generado...\",\n  \"estado\": \"borrador\"\n}"
+            },
+            "description": "Crea un nuevo documento"
+          }
+        },
+        {
+          "name": "Actualizar documento",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/documentos/{id}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"finalizado\"\n}"
+            },
+            "description": "Actualiza un documento existente"
+          }
+        },
+        {
+          "name": "Eliminar documento",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/documentos/{id}",
+            "description": "Elimina un documento"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Valores",
+      "item": [
+        {
+          "name": "Listar valores",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/valores/",
+            "description": "Lista todos los valores"
+          }
+        },
+        {
+          "name": "Valores por documento",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/valores/documento/{documento_id}",
+            "description": "Obtiene los valores de un documento"
+          }
+        },
+        {
+          "name": "Crear valor",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/valores/",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento_id\": 1,\n  \"campo_plantilla_id\": 1,\n  \"valor\": \"Juan Pérez\"\n}"
+            },
+            "description": "Crea un nuevo valor"
+          }
+        },
+        {
+          "name": "Actualizar valor",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/valores/{id}",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valor\": \"Nuevo valor\"\n}"
+            },
+            "description": "Actualiza un valor existente"
+          }
+        },
+        {
+          "name": "Eliminar valor",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/valores/{id}",
+            "description": "Elimina un valor"
+          }
+        }
+      ]
+    }
+  ]
+}

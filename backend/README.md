@@ -69,20 +69,23 @@ backend/
 - [x] `models/documento_generado.py`
 - [x] `models/documento_valor.py`
 
-### Fase 4: Backend - Schemas (Pendiente)
-- [ ] `schemas/plantilla.py`
-- [ ] `schemas/plantilla_campo.py`
-- [ ] `schemas/documento_generado.py`
-- [ ] `schemas/documento_valor.py`
+### Fase 4: Backend - Schemas (Completada)
+- [x] `schemas/plantilla.py`
+- [x] `schemas/plantilla_campo.py`
+- [x] `schemas/documento_generado.py`
+- [x] `schemas/documento_valor.py`
 
-### Fase 5: Backend - Routers (Pendiente)
-- [ ] CRUD Plantillas
-- [ ] CRUD Campos
-- [ ] CRUD Documentos
+### Fase 5: Backend - Routers (Completada)
+- [x] CRUD Plantillas
+- [x] CRUD Campos
+- [x] CRUD Documentos
+- [x] CRUD Valores
+- [x] Generar documento desde plantilla
 
-### Fase 6: Backend - Services (Pendiente)
-- [ ] Lógica de negocio
-- [ ] Renderizado de plantillas
+### Fase 6: Backend - Services (Completada)
+- [x] Lógica de negocio
+- [x] Renderizado de plantillas
+- [x] Generación de documentos
 
 ### Fase 7: Frontend (Pendiente)
 - [ ] React

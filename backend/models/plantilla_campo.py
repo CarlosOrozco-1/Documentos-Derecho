@@ -1,11 +1,11 @@
-from sqlalchemy import column, Integer, Text, Boolean, DateTime
+from sqlalchemy import Column, Integer, Text, Boolean, DateTime
 from sqlalchemy.orm import declarative_base
 from datetime import datetime
 
 Base = declarative_base()
 
 
-class Plantilla(Base):
+class PlantillaCampo(Base):
     __tablename__ = "plantilla_campos"
     __table_args__ = {"schema": "juridico"}
 

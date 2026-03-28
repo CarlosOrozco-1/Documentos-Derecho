@@ -1,0 +1,39 @@
+.documentos-page h1 {
+    margin-bottom: 1.5rem;
+}
+
+.documentos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.documento-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background: white;
+}
+
+.documento-card h3 {
+    margin: 0 0 0.5rem 0;
+}
+
+.documento-card .estado {
+    margin: 0.25rem 0;
+}
+
+.documento-card .fecha {
+    margin: 0.25rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.estado-borrador { color: #856404; }
+.estado-finalizado { color: #155724; }
+.estado-anulado { color: #721c24; }
+
+.no-data {
+    color: #666;
+    font-style: italic;
+}
