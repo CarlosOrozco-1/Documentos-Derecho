@@ -104,4 +104,8 @@ plantillas
 
 ## Licencia
 
-MIT
+*** MIT ***
+
+<P>
+La licencia MIT es una licencia de software libre permisiva originaria del Instituto Tecnológico de Massachusetts que otorga a los usuarios libertad total para usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar y vender el software.
+</p>

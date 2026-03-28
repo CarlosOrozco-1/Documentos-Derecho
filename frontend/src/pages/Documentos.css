@@ -1,7 +1,3 @@
-.documentos-page h1 {
-    margin-bottom: 1.5rem;
-}
-
 .documentos-list {
     display: flex;
     flex-direction: column;
@@ -9,31 +5,90 @@
 }
 
 .documento-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    background: white;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
 }
 
-.documento-card h3 {
-    margin: 0 0 0.5rem 0;
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-.documento-card .estado {
+.doc-header h3 {
+    margin: 0;
+    color: var(--primary);
+}
+
+.doc-info {
+    margin-bottom: 1rem;
+}
+
+.doc-info p {
     margin: 0.25rem 0;
-}
-
-.documento-card .fecha {
-    margin: 0.25rem 0;
-    color: #666;
+    color: var(--text-light);
     font-size: 0.9rem;
 }
 
-.estado-borrador { color: #856404; }
-.estado-finalizado { color: #155724; }
-.estado-anulado { color: #721c24; }
+.doc-info .contenido-preview {
+    margin-top: 0.75rem;
+    color: var(--text);
+}
 
-.no-data {
-    color: #666;
-    font-style: italic;
+.doc-actions {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.documento-view .doc-view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.documento-view .doc-view-header h2 {
+    margin: 0;
+}
+
+.documento-view .doc-view-content {
+    background: var(--bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.documento-view .doc-view-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.documento-view .doc-view-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cambiar-estado p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
 }
