@@ -79,4 +79,14 @@ VALUES
 (1, 'monto_mensual', 'Monto Mensual', 'numero');
 
 -- Generar un documento
-INSERT INTO juridico.documentos_generados (plantilla_id, nombre_documento, contenido_final
+INSERT INTO juridico.documentos_generados (plantilla_id, nombre_documento, contenido_final)
+VALUES (1, 'Contrato de Arriendo - Juan Pérez', 'El arrendador Juan Pérez cede el inmueble...');
+
+---
+-- ÍNDICES (Para optimizar consultas y joins)
+---
+
+CREATE INDEX idx_plantilla_campos_plantilla_id ON juridico.plantilla_campos (plantilla_id);
+CREATE INDEX idx_documentos_generados_plantilla_id ON juridico.documentos_generados (plantilla_id);
+CREATE INDEX idx_documento_valores_documento_id ON juridico.documento_valores (documento_id);
+CREATE INDEX idx_documento_valores_campo_plantilla_id ON juridico.documento_valores (campo_plantilla_id);
