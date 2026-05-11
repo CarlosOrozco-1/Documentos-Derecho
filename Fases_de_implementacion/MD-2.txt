@@ -1,0 +1,6 @@
+
+---
+
+## 3. Arquitectura de la Base de Datos
+
+### 3.1 Diagrama Entidad-Relación

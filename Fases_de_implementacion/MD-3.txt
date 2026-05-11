@@ -1,0 +1,159 @@
+
+### 3.2 Lista de Tablas (13 totales)
+
+| # | Categoría | Tabla | Descripción |
+|---|-----------|-------|-------------|
+| 1 | Catálogo | `roles` | Roles de usuario (admin, abogado, asistente) |
+| 2 | Catálogo | `estados_documento` | Estados: borrador, aprobado, finalizado, anulado |
+| 3 | Catálogo | `categorias_plantilla` | Tipos de plantillas |
+| 4 | Actores | `usuarios` | Usuarios del sistema |
+| 5 | Actores | `personas` | Personas físicas/jurídicas |
+| 6 | Plantillas | `plantillas` | Documentos base con marcadores |
+| 7 | Plantillas | `plantilla_variables` | Variables de cada plantilla |
+| 8 | Documentos | `documentos_juridicos` | Documentos generados |
+| 9 | Documentos | `documento_partes` | Actores del documento |
+| 10 | Documentos | `documento_variables_valores` | Valores de variables |
+| 11 | Trazabilidad | `documento_historial_estados` | Historial de cambios |
+| 12 | Agenda | `citas` | Citas con clientes |
+| 13 | Auditoría | `auditoria` | Log de cambios general |
+
+---
+
+## 4. Plan de Implementación por Fases
+
+### 🏗️ FASE 1: Base del Sistema
+**Archivo:** `01_fase1_usuarios_personas.sql`
+
+**Tablas a crear:**
+- `roles`
+- `usuarios`
+- `personas`
+
+**Datos iniciales:**
+- 3 roles (Administrador, Abogado, Asistente)
+- 1 usuario administrador
+- 1 persona vinculada al admin
+
+**Al finalizar esta fase puedes:**
+- Iniciar sesión en el sistema
+- Gestionar usuarios y roles
+- Registrar personas (clientes)
+
+---
+
+### 📋 FASE 2: Gestión de Plantillas
+**Archivo:** `02_fase2_plantillas.sql`
+
+**Tablas a crear:**
+- `categorias_plantilla`
+- `plantillas`
+- `plantilla_variables`
+
+**Datos iniciales:**
+- 3 categorías (Contratos, Poderes, Demandas)
+- 1 plantilla de ejemplo
+- 9 variables para la plantilla
+
+**Al finalizar esta fase puedes:**
+- Crear categorías de plantillas
+- Crear y editar plantillas con marcadores `{variable}`
+- Definir variables (nombre, etiqueta, tipo, origen)
+
+---
+
+### 📄 FASE 3: Documentos Jurídicos (Parte 1)
+**Archivo:** `03_fase3_documentos_parte1.sql`
+
+**Tablas a crear:**
+- `estados_documento`
+- `documentos_juridicos`
+
+**Datos iniciales:**
+- 4 estados (Borrador, Aprobado, Finalizado, Anulado)
+
+**Al finalizar esta fase puedes:**
+- Crear documentos a partir de plantillas
+- Asignar estado inicial (Borrador)
+- Guardar contenido generado y ruta PDF
+
+---
+
+### 📎 FASE 4: Documentos Jurídicos (Parte 2)
+**Archivo:** `04_fase4_documentos_parte2.sql`
+
+**Tablas a crear:**
+- `documento_partes`
+- `documento_variables_valores`
+- `documento_historial_estados`
+
+**Al finalizar esta fase puedes:**
+- Asignar partes al documento (comprador, vendedor, notario)
+- Guardar valores de variables por documento
+- Registrar trazabilidad de cambios de estado
+- Ver línea de tiempo del documento
+
+---
+
+### 📅 FASE 5: Citas y Auditoría
+**Archivo:** `05_fase5_citas_auditoria.sql`
+
+**Tablas a crear:**
+- `citas`
+- `auditoria`
+
+**Al finalizar esta fase puedes:**
+- Agendar y gestionar citas con clientes
+- Registrar auditoría de cambios en todo el sistema
+- **¡Sistema completo! 🎉**
+
+---
+
+## 5. Instrucciones para SQL Management Studio
+
+### 5.1 Requisitos Previos
+
+- **SQL Server** instalado (Express, Developer o Standard)
+- **SQL Server Management Studio (SSMS)** instalado
+- Permisos para crear bases de datos (rol `dbcreator` o `sysadmin`)
+
+### 5.2 Conexión al Servidor
+
+1. Abre **SQL Server Management Studio**
+2. En la ventana "Conectar al servidor":
+   - **Tipo de servidor:** Motor de base de datos
+   - **Nombre del servidor:** `localhost` o `.\SQLEXPRESS` (según tu instalación)
+   - **Autenticación:** Autenticación de Windows (recomendado) o Autenticación de SQL Server
+3. Haz clic en **Conectar**
+
+### 5.3 Ejecutar los Scripts (Paso a Paso)
+
+#### Opción A: Ejecutar script por script (Recomendado)
+
+1. En el **Explorador de objetos**, haz clic derecho en la carpeta "Bases de datos"
+2. Selecciona **Nueva consulta**
+3. Abre el archivo `01_fase1_usuarios_personas.sql` (Ctrl+O o Archivo → Abrir)
+4. Verifica que el contenido se cargó correctamente
+5. Haz clic en **Ejecutar** (F5) o el botón verde en la barra de herramientas
+6. Revisa los mensajes en la pestaña "Mensajes" para confirmar que no hay errores
+7. **Repite los pasos 2-6 para cada script en orden:**
+   - `02_fase2_plantillas.sql`
+   - `03_fase3_documentos_parte1.sql`
+   - `04_fase4_documentos_parte2.sql`
+   - `05_fase5_citas_auditoria.sql`
+
+#### Opción B: Ejecutar todos los scripts de una vez
+
+1. Crea un archivo `ejecutar_todo.sql` con este contenido:
+
+```sql
+-- Ejecutar todas las fases en orden
+:r "C:\ruta\a\tu\proyecto\database\scripts\01_fase1_usuarios_personas.sql"
+GO
+:r "C:\ruta\a\tu\proyecto\database\scripts\02_fase2_plantillas.sql"
+GO
+:r "C:\ruta\a\tu\proyecto\database\scripts\03_fase3_documentos_parte1.sql"
+GO
+:r "C:\ruta\a\tu\proyecto\database\scripts\04_fase4_documentos_parte2.sql"
+GO
+:r "C:\ruta\a\tu\proyecto\database\scripts\05_fase5_citas_auditoria.sql"
+GO
